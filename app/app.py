@@ -21,6 +21,7 @@ def consume_messages():
     consumer = create_consumer()
     for message in consumer:
         yield (str(message.value) + '\n').encode('utf-8')
+        
 def stream_template(template_name, **context):
     app.update_template_context(context)
     template = app.jinja_env.get_template(template_name)
